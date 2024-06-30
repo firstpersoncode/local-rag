@@ -5,7 +5,7 @@ This application is designed to handle queries using a language model and a vect
 ## Prerequisites
 
 1. **Python 3**: Ensure you have Python 3.x installed.
-2. **Ollama**: This app requires Ollama to be installed and running locally. Follow the [Ollama installation guide](https://ollama.com/docs/installation) to set it up.
+2. **Ollama**: This app requires Ollama to be installed and running locally. Follow the [Ollama installation guide](https://github.com/ollama/ollama/blob/main/README.md#quickstart) to set it up.
 
 ## Setup
 
@@ -30,7 +30,7 @@ $ pip install -r requirements.txt
 ```
 
 4. **Run Ollama**:
-Ensure Ollama is installed and running locally. Refer to the [Ollama documentation](https://ollama.com/docs/installation) for setup instructions.
+Ensure Ollama is installed and running locally. Refer to the [Ollama documentation](https://github.com/ollama/ollama/blob/main/README.md#quickstart) for setup instructions.
 
 ## Running the App
 ```bash
