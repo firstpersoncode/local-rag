@@ -31,6 +31,18 @@ $ pip install -r requirements.txt
 
 4. **Run Ollama**:
 Ensure Ollama is installed and running locally. Refer to the [Ollama documentation](https://github.com/ollama/ollama/blob/main/README.md#quickstart) for setup instructions.
+- Install llm model
+```bash
+$ ollama pull mistral
+```
+- Install text embedding model
+```bash
+$ ollama pull nomic-embed-text
+```
+- Run Ollama
+```bash
+$ ollama serve
+```
 
 ## Running the App
 ```bash
