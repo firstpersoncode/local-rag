@@ -11,7 +11,7 @@ This application is designed to handle queries using a language model and a vect
 
 1. **Clone the repository**:
 ```bash
-$ git clone https://github.com/your-repo/local-rag.git
+$ git clone https://github.com/firstpersoncode/local-rag.git
 $ cd local-rag
 ```
 
@@ -31,6 +31,11 @@ $ pip install -r requirements.txt
 
 4. **Run Ollama**:
 Ensure Ollama is installed and running locally. Refer to the [Ollama documentation](https://github.com/ollama/ollama/blob/main/README.md#quickstart) for setup instructions.
+
+- Start Ollama
+```bash
+$ ollama serve
+```
 - Install llm model
 ```bash
 $ ollama pull mistral
@@ -39,9 +44,15 @@ $ ollama pull mistral
 ```bash
 $ ollama pull nomic-embed-text
 ```
-- Run Ollama
+
+5. **Set up environment variables**:
+Edit the .env.sample file and save it as .env
 ```bash
-$ ollama serve
+TEMP_FOLDER = './_temp'
+CHROMA_PATH = "chroma"
+COLLECTION_NAME = 'local-rag'
+LLM_MODEL = 'mistral' # replace with the model you want to use.
+TEXT_EMBEDDING_MODEL = 'nomic-embed-text'
 ```
 
 ## Running the App
@@ -49,6 +60,31 @@ $ ollama serve
 $ python app.py
 ```
 
+Load the documents into the database.
+```
+$ curl --request POST \
+  --url http://localhost:8080/embed \
+  --header 'Content-Type: multipart/form-data' \
+  --form file=@/path/to/pdf/document.pdf
+
+# Response
+{
+  "message": "File embedded successfully"
+}
+```
+
+Ask questions about the documents.
+```
+$ curl --request POST \
+  --url http://localhost:8080/query \
+  --header 'Content-Type: application/json' \
+  --data '{ "query": "What is the document about?" }'
+
+# Response
+{
+  "message": "The document is about...",
+}
+```
 
 ## Conclusion
 
